@@ -27,7 +27,10 @@ struct AppetizaeTabView: View {
                 }
         }
         .accentColor(Color("brandPrimary"))
+        
     }
+    
+    
 }
 
 #Preview {

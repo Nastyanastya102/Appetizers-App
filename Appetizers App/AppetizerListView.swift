@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct AppetizerListView: View {
+    @State private var appetizer: [Appetizer] = []
+    @StateObject var appetizerModel = AppetizerViewModel()
+    
     var body: some View {
         NavigationView {
-            List(MockData.mockAppetizers) { appetizer in
+            List(appetizerModel.appetizers) { appetizer in
                 AppetizerItem(appetizer: appetizer)
-                
             }
-            Text("AppetizarList")
-                .navigationTitle("Appetizer 🍱")
+            .navigationTitle("Appetizer 🍱")
         }
-
+        .onAppear {
+            appetizerModel.getAppitizers()
+        }
     }
 }
 
@@ -30,7 +33,7 @@ struct AppetizerItem: View {
     
     var body: some View {
         HStack(spacing: 6) {
-            AsyncImage(url: URL(string: "https://images.pexels.com/photos/2228553/pexels-photo-2228553.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&dpr=2")) { phase in
+            AsyncImage(url: URL(string: appetizer.imageURL)) { phase in
                 switch phase {
                 case .failure:
                     Image(systemName: "photo")
@@ -51,5 +54,5 @@ struct AppetizerItem: View {
                     .foregroundColor(.gray)
             }.padding(.leading)
         }
-    }
+    } 
 }

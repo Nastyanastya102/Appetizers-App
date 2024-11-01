@@ -6,22 +6,22 @@
 //
 import Foundation
 
-final class NetworkManager {
-    static let shared = NetworkManager()
+final class NetworkManagerAPI {
+    static let shared = NetworkManagerAPI()
     
-    static let baseUrl: String = "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals"
+    static let baseUrl = "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals"
     private let appetizerUrl = baseUrl + "/appetizers"
-    private init() {
-        
-    }
+    private init() {}
     
     func getAppetizers(completion: @escaping (Result<[Appetizer], ApError>) -> Void) {
+
         guard let url = URL(string: appetizerUrl) else {
             completion(.failure(.invalidURL))
             return
         }
-        let task = URLSession.shared.dataTask(with: URLRequest(url : url)) { data, responce, error in
-            guard let _ = error else {
+ 
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, responce, error in
+            if let _ = error {
                 completion(.failure(.unableToCompleteRequest))
                 return
             }
@@ -44,7 +44,7 @@ final class NetworkManager {
                 completion(.failure(.invalidData))
             }
         }
-        
+
         task.resume()
 
     }
