@@ -10,8 +10,10 @@ import Foundation
 final class AppetizerViewModel: ObservableObject {
     @Published var appetizers: [Appetizer] = []
     @Published var alertItem: AlertItem?
+    @Published var isLoading: Bool = false
     
     func getAppitizers() {
+        isLoading = true
         NetworkManagerAPI.shared.getAppetizers {[self] result in
             DispatchQueue.main.async {
                 switch(result) {
@@ -33,7 +35,9 @@ final class AppetizerViewModel: ObservableObject {
                         self.alertItem = AlertContext.unableToCompleteRequest
                         break
                     }
+                    self.isLoading = false
                 }
+
             }
         }
     }

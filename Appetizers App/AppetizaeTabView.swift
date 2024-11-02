@@ -26,7 +26,7 @@ struct AppetizaeTabView: View {
                     Text("Order")
                 }
         }
-        .accentColor(Color("brandPrimary"))
+        .accentColor(.BrandPrimary)
         
     }
     
