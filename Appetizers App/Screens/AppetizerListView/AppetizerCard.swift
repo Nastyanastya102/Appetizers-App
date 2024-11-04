@@ -9,10 +9,11 @@ import SwiftUI
 
 struct AppetizerCard: View {
     let appetizer: Appetizer
+    @Binding var isShowingView: Bool
     
     var body: some View {
         VStack {
-            Card(appetizer: appetizer)
+            Card(appetizer: appetizer, isShowingView: $isShowingView)
         }
         .frame(width: 340, height: 550, alignment: .center)
         .background(Color(.systemBackground))
@@ -23,6 +24,8 @@ struct AppetizerCard: View {
 
 struct Card: View {
     let appetizer: Appetizer
+    @Binding var isShowingView: Bool
+    
     var body: some View {
         VStack {
             AppetizerRemoteImage(urlString: appetizer.imageURL)
@@ -61,7 +64,7 @@ struct Card: View {
         }
         .overlay(alignment: .topTrailing) {
             Button {
-                print("X")
+                isShowingView = false
             } label: {
                 ZStack {
                     Circle()
@@ -91,5 +94,5 @@ struct ItemValue: View {
 }
 
 #Preview {
-    AppetizerCard(appetizer: MockData.sampleAppetizer)
+    AppetizerCard(appetizer: MockData.sampleAppetizer, isShowingView: .constant(true))
 }
