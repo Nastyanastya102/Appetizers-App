@@ -29,13 +29,12 @@ struct Card: View {
     var body: some View {
         VStack {
             AppetizerRemoteImage(urlString: appetizer.imageURL)
+                .frame(width: 340, height: 225)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: .infinity, height: 225)
-                .onAppear()
             Text(appetizer.name)
                 .font(.title)
                 .bold()
-                .padding(16)
+                .padding(8)
             Text(appetizer.description)
                 .font(.system(size: 16, weight: .light))
                 .foregroundColor(.gray)

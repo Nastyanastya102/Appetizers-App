@@ -15,7 +15,7 @@ struct PrimaryButton: View {
             .font(.title2)
             .bold()
             .frame(width: 260, height: 50)
-            .foregroundColor(.white)
+            .background(Color.BrandPrimary)
             .cornerRadius(10)
     }
 }
