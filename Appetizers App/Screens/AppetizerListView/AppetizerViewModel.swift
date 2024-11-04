@@ -37,13 +37,6 @@ final class AppetizerViewModel: ObservableObject {
                     case .unableToCompleteRequest:
                         self.alertItem = AlertContext.unableToCompleteRequest
                         break
-                    case .invalidForm:
-                        self.alertItem = AlertContext.invalidForm
-                        break
-                    case .invalidEmail:
-                        self.alertItem = AlertContext.invalidEmail
-                        break
-                    }
                 }
 
             }

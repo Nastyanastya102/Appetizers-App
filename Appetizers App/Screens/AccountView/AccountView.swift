@@ -15,17 +15,17 @@ struct AccountView: View {
             VStack {
                 Form {
                     Section(header: Text("Personal Info")) {
-                        TextField("First Name", text: $mv.firstName)
-                        TextField("Last Name", text: $mv.lastName)
-                        TextField("Email", text: $mv.email)
+                        TextField("First Name", text: $mv.user.firstName)
+                        TextField("Last Name", text: $mv.user.lastName)
+                        TextField("Email", text: $mv.user.email)
                             .keyboardType(.emailAddress)
                             .autocorrectionDisabled(true)
                             .autocapitalization(.none)
-                        DatePicker("Birthday", selection: $mv.birthday, displayedComponents: .date)
+                        DatePicker("Birthday", selection: $mv.user.birthday, displayedComponents: .date)
                     }
                     Section(header: Text("Settings")) {
-                        Toggle("Extra Naplkins", isOn: $mv.extraNapkins)
-                        Toggle("Reffils", isOn: $mv.refills)
+                        Toggle("Extra Naplkins", isOn: $mv.user.extraNapkins)
+                        Toggle("Reffils", isOn: $mv.user.refills)
                     }
                     .toggleStyle(SwitchToggleStyle(tint: Color.BrandPrimary))
                     Section {
@@ -40,6 +40,9 @@ struct AccountView: View {
         }
         .alert(item: $mv.alertItem) { alert in
             Alert(title: alert.title, message: alert.message, dismissButton: .default(Text("OK")))
+        }
+        .onAppear() {
+            mv.retriveUser()
         }
         
     }

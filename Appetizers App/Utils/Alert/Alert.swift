@@ -54,4 +54,16 @@ struct AlertContext {
         dismissButton: .default(Text("OK"))
     )
     
+    static let userSaveSuccess = AlertItem(
+        title: Text("User saved"),
+        message: Text("User saved successfully"),
+        dismissButton: .default(Text("OK"))
+    )
+    
+    static let userSaveFailed = AlertItem(
+        title: Text("User save failed"),
+        message: Text("Something went wrong. Please contact support"),
+        dismissButton: .default(Text("OK"))
+    )
+    
 }
