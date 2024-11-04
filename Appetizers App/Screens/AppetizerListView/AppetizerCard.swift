@@ -23,14 +23,14 @@ struct AppetizerCard: View {
 }
 
 struct Card: View {
-    let appetizer: Appetizer
+    var appetizer: Appetizer
     @Binding var isShowingView: Bool
     
     var body: some View {
         VStack {
             AppetizerRemoteImage(urlString: appetizer.imageURL)
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 225)
+                .frame(width: .infinity, height: 225)
                 .onAppear()
             Text(appetizer.name)
                 .font(.title)
@@ -51,31 +51,16 @@ struct Card: View {
             Button {
                 print("Button pressed")
             } label: {
-                Text("\(appetizer.price, specifier: "%.2f")$ - Add to Oder")
-                    .foregroundColor(.white)
-                    .font(.title2)
-                    .bold()
+                PrimaryButton(title: "\(appetizer.price, specifier: "%.2f")$ - Add to Oder")
             }
-            .padding()
-            .foregroundColor(.white)
-            .background(.brandPrimary)
-            .cornerRadius(10)
+            .padding(.bottom, 30)
             Spacer()
         }
         .overlay(alignment: .topTrailing) {
             Button {
                 isShowingView = false
             } label: {
-                ZStack {
-                    Circle()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.white)
-                        .opacity(0.6)
-                    Image(systemName: "xmark")
-                        .imageScale(.medium)
-                        .frame(width: 44, height: 4)
-                        .foregroundColor(.black)
-                }
+                CloseButton()
             }
         }
     }
