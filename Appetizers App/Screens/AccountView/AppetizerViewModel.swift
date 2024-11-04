@@ -16,6 +16,7 @@ final class AppetizerViewModel: ObservableObject {
         isLoading = true
         NetworkManagerAPI.shared.getAppetizers {[self] result in
             DispatchQueue.main.async {
+                self.isLoading = false
                 switch(result) {
                 case .success(let appt):
                     self.appetizers = appt
@@ -34,8 +35,7 @@ final class AppetizerViewModel: ObservableObject {
                     case .unableToCompleteRequest:
                         self.alertItem = AlertContext.unableToCompleteRequest
                         break
-                    }
-                    self.isLoading = false
+                    }     
                 }
 
             }

@@ -10,7 +10,7 @@ import SwiftUI
 struct AppetizerListView: View {
     @State private var appetizer: [Appetizer] = []
     @StateObject var appetizerModel = AppetizerViewModel()
-    
+   
     var body: some View {
         ZStack {
             NavigationView {
@@ -41,18 +41,7 @@ struct AppetizerItem: View {
     
     var body: some View {
         HStack(spacing: 6) {
-            AsyncImage(url: URL(string: appetizer.imageURL)) { phase in
-                switch phase {
-                case .failure:
-                    Image(systemName: "photo")
-                        .font(.largeTitle)
-                case .success(let image):
-                    image
-                        .resizable()
-                default:
-                    ProgressView()
-                }
-            }
+            AppetizerRemoteImage(urlString: appetizer.imageURL)
             .frame(width: 60, height: 60)
             .clipShape(.rect(cornerRadius: 12))
             VStack (alignment: .leading) {
