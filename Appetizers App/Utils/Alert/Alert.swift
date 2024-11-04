@@ -40,4 +40,18 @@ struct AlertContext {
         dismissButton: .default(Text("OK"))
     )
     
+    // Mark: Account
+    
+    static let invalidForm = AlertItem(
+        title: Text("Invalid form"),
+        message: Text("Please fill in all fields"),
+        dismissButton: .default(Text("OK"))
+    )
+    
+    static let invalidEmail = AlertItem(
+        title: Text("Invalid email"),
+        message: Text("Please enter a valid email"),
+        dismissButton: .default(Text("OK"))
+    )
+    
 }
