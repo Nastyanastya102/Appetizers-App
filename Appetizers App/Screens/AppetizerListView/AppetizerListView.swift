@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppetizerListView: View {
     @StateObject var appetizerModel = AppetizerViewModel()
-  
+    
     var body: some View {
         ZStack {
             NavigationView {

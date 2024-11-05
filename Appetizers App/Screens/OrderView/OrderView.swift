@@ -8,32 +8,34 @@
 import SwiftUI
 
 struct OrderView: View {
-    @StateObject var vm = OrderViewModel()
+    @EnvironmentObject var orders: Order
+    
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(vm.appetizers) {appetizer in
-                        AppetizerItem(appetizer: appetizer)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(orders.appetizers) {appetizer in
+                            AppetizerItem(appetizer: appetizer)
+                        }
+                        .onDelete(perform: { indexSet in
+                            orders.delete(indexSet)
+                        })
                     }
-                    .onDelete(perform: { indexSet in
-                        onDeleteItem(at: indexSet)
-                    })
+                    .listStyle(PlainListStyle())
+                    Button {
+                        print("pressed")
+                    } label: {
+                        PrimaryButton(title: "$\(orders.total, specifier: "%.2f") - Post Order")
+                    }
                 }
-                .listStyle(PlainListStyle())
-                Button {
-                    print("pressed")
-                } label: {
-                    PrimaryButton(title: "Post Order")
+                
+                if orders.appetizers.isEmpty {
+                    EmptyState()
                 }
             }
-           
             .navigationTitle("Order 🧾")
         }
-    }
-    
-    func onDeleteItem(at offset: IndexSet) {
-        vm.appetizers.remove(atOffsets: offset)
     }
 }
 

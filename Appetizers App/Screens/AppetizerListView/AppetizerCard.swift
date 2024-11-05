@@ -9,11 +9,12 @@ import SwiftUI
 
 struct AppetizerCard: View {
     let appetizer: Appetizer
+    @EnvironmentObject var orders: Order
     @Binding var isShowingView: Bool
     
     var body: some View {
         VStack {
-            Card(appetizer: appetizer, isShowingView: $isShowingView)
+            Card(appetizer: appetizer, orders: _orders, isShowingView: $isShowingView)
         }
         .frame(width: 340, height: 550, alignment: .center)
         .background(Color(.systemBackground))
@@ -24,6 +25,7 @@ struct AppetizerCard: View {
 
 struct Card: View {
     var appetizer: Appetizer
+    @EnvironmentObject var orders: Order
     @Binding var isShowingView: Bool
     
     var body: some View {
@@ -48,7 +50,8 @@ struct Card: View {
             }
             Spacer()
             Button {
-                print("Button pressed")
+                orders.add(appetizer)
+                isShowingView = false
             } label: {
                 PrimaryButton(title: "\(appetizer.price, specifier: "%.2f")$ - Add to Oder")
             }
