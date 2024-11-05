@@ -22,7 +22,7 @@ final class AppetizerViewModel: ObservableObject {
                 switch(result) {
                 case .success(let appt):
                     self.appetizers = appt
-                   break
+                    break
                 case .failure(let error):
                     switch error {
                     case .invalidData:
@@ -37,8 +37,8 @@ final class AppetizerViewModel: ObservableObject {
                     case .unableToCompleteRequest:
                         self.alertItem = AlertContext.unableToCompleteRequest
                         break
+                    }
                 }
-
             }
         }
     }

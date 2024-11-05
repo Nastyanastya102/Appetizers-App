@@ -25,5 +25,5 @@ struct Appetizer: Decodable, Identifiable {
 struct MockData {
     static let sampleAppetizer = Appetizer(id: 1, name: "Mozzarella Sticks", price: 5.99, imageURL: "https://example.com/images/mozzarella_sticks.jpg",  carbs: 14, calories: 35, protein: 450, description: "Some description Mozzarella stick and it's value for your body")
     
-    static var mockAppetizers: [Appetizer] = [Appetizer(id: 1, name: "Mozzarella Sticks", price: 5.99, imageURL: "https://example.com/images/mozzarella_sticks.jpg",  carbs: 14, calories: 35, protein: 450, description: "Some description Mozzarella"), Appetizer(id: 1, name: "Mozzarella Sticks", price: 5.99, imageURL: "https://example.com/images/mozzarella_sticks.jpg",  carbs: 14, calories: 35, protein: 450, description: "Some description Mozzarella")]
+    static var mockAppetizers: [Appetizer] = [Appetizer(id: 1, name: "Mozzarella Sticks", price: 5.99, imageURL: "https://example.com/images/mozzarella_sticks.jpg",  carbs: 14, calories: 35, protein: 450, description: "Some description Mozzarella"), Appetizer(id: 2, name: "Mozzarella Sticks", price: 5.99, imageURL: "https://example.com/images/mozzarella_sticks.jpg",  carbs: 14, calories: 35, protein: 450, description: "Some description Mozzarella")]
 }
