@@ -20,6 +20,7 @@ struct AppetizerListView: View {
                             appetizerModel.selectedAppetizer = appetizer
                         }
                 }
+                .listStyle(.plain)
                 .navigationTitle("Appetizer 🍱")
                 .disabled(appetizerModel.isShowingDetail)
             }

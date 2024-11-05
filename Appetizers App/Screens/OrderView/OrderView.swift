@@ -28,6 +28,7 @@ struct OrderView: View {
                     } label: {
                         PrimaryButton(title: "$\(orders.total, specifier: "%.2f") - Post Order")
                     }
+                    .padding(.bottom, 25)
                 }
                 
                 if orders.appetizers.isEmpty {
