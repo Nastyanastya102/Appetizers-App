@@ -1,3 +1,4 @@
+
 # Appetizers App
 This repository hosts the Appetizers App, an iOS application built with Swift. The app showcases various appetizer items in a visually appealing, user-friendly interface.
 
@@ -26,3 +27,7 @@ Contributions are welcome! Feel free to fork the project and submit pull request
 <img src="https://github.com/user-attachments/assets/07905424-6dd0-4195-9919-276a5084791e" alt="alt text" width="500" height="whatever">
 <img src="https://github.com/user-attachments/assets/000cee2d-de26-45f5-b50e-ac1c6378ec19" alt="alt text" width="500" height="whatever">
 <img src="https://github.com/user-attachments/assets/3206418b-2195-4fee-a62f-682ef7bf57e0" alt="alt text" width="500" height="whatever">
+
+### Dark  mode
+<img src="https://github.com/user-attachments/assets/f1c7e48b-bcf0-499d-a20f-992cd4ea6f39" alt="alt text" width="500" height="whatever">
+
